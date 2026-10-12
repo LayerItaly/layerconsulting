@@ -60,17 +60,6 @@
   });
   if (tabs.length) select(tabs[0]);
 
-  // Ventures: a soft light follows the pointer.
-  if (finePointer) {
-    document.querySelectorAll('.venture').forEach(function (card) {
-      card.addEventListener('pointermove', function (e) {
-        var r = card.getBoundingClientRect();
-        card.style.setProperty('--x', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--y', (e.clientY - r.top) + 'px');
-      });
-    });
-  }
-
   // Contact button leans toward the pointer.
   if (finePointer && !still) {
     document.querySelectorAll('.magnetic').forEach(function (el) {

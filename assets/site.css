@@ -83,8 +83,9 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 
 /* ---------- hero ---------- */
 .hero { min-height: 100dvh; display: grid; align-items: center; padding: 112px 0 56px; }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
-.h-hero { font-size: clamp(3rem, 7.4vw, 6rem); line-height: .98; letter-spacing: -0.045em; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.h-hero { font-size: clamp(2.5rem, 6vw, 5.8rem); line-height: 1; letter-spacing: -0.045em; }
+@media (min-width: 861px) { .h-hero .ln { white-space: nowrap; } }
 .h-hero .ln { display: block; }
 .h-hero .ln + .ln { color: var(--ink-3); }
 .h-hero .w { display: inline-block; }
@@ -103,6 +104,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .layers { position: relative; height: 320vh; view-timeline: --layers block; }
 .layers-stage { position: sticky; top: 0; height: 100dvh; display: grid; align-items: center; }
 .layers-stage .wrap { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.layers-copy h2 { font-size: clamp(2rem, 3.4vw, 3.1rem); }
 .layers-copy p { color: var(--ink-2); font-size: 1.1rem; max-width: 40ch; margin-top: 22px; }
 .stack { --shift: 64px; list-style: none; margin: 0; padding: 0; display: grid; }
 .stack li { display: grid; grid-template-columns: minmax(120px, 42%) 1fr; gap: 28px; align-items: center; min-height: 92px; }
@@ -129,7 +131,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 
 /* ---------- when to call: expanding index ---------- */
 .block { padding: clamp(96px, 14vw, 180px) 0; }
-.block h2 { max-width: 16ch; }
+.block h2 { max-width: 22ch; }
+h2 .dim, .row h3 .dim { color: var(--ink-3); }
 .index { margin-top: 56px; border-top: 1px solid var(--line); }
 .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; padding: 30px 0; border-bottom: 1px solid var(--line); outline: none; }
 .row h3 { font-size: clamp(1.5rem, 3vw, 2.4rem); letter-spacing: -0.035em; transition: transform .6s var(--ease); }
@@ -145,7 +148,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 @media (hover: none) { .row .more { grid-template-rows: 1fr; opacity: 1; } .row .arrow { display: none; } }
 
 /* ---------- manifesto ---------- */
-.manifesto { height: 240vh; view-timeline: --quote block; }
+.manifesto { height: 200vh; view-timeline: --quote block; }
 .manifesto-stage { position: sticky; top: 0; height: 100dvh; display: grid; place-content: center; padding-inline: var(--pad); }
 .manifesto blockquote { margin: 0 auto; font: 600 clamp(2.2rem, 6.2vw, 5.4rem)/1.04 var(--display); letter-spacing: -0.045em; max-width: 17ch; text-align: center; text-wrap: balance; }
 .manifesto .attr { text-align: center; margin-top: 28px; color: var(--ink-3); font-size: .95rem; }
@@ -198,17 +201,12 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .rules span { color: var(--ink-2); font-size: .98rem; }
 @media (max-width: 860px) { .about .wrap { grid-template-columns: 1fr; } .plate-studio { max-width: 420px; } }
 
-/* ---------- ventures: spotlight tiles ---------- */
-.ventures { margin-top: 56px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.venture { --x: 50%; --y: 50%; position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 64px; min-height: 340px; padding: clamp(28px, 3.4vw, 44px); border-radius: var(--r); background: var(--sheet); box-shadow: var(--shadow); text-decoration: none; transition: transform .7s var(--ease); }
-.venture::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .5s; background: radial-gradient(420px circle at var(--x) var(--y), color-mix(in oklab, #7a7cf0 16%, transparent), transparent 70%); }
-.venture:hover::before { opacity: 1; }
-.venture h3 { font-size: clamp(2.2rem, 4.4vw, 3.6rem); letter-spacing: -0.045em; }
-.venture p { color: var(--ink-2); max-width: 40ch; margin: 0; }
-.venture .go { margin-top: 22px; display: flex; justify-content: space-between; align-items: center; color: var(--ink-3); font-size: .95rem; }
-.venture .go svg { width: 22px; height: 22px; transition: transform .6s var(--ease); }
-.venture:hover .go svg { transform: translate(4px, -4px); }
-@media (max-width: 760px) { .ventures { grid-template-columns: 1fr; } .venture { min-height: 280px; } }
+/* ---------- gallery: abstract plates that pan sideways on scroll ---------- */
+.gallery { padding: 24px 0 clamp(72px, 10vw, 140px); overflow-x: auto; scrollbar-width: none; }
+.gallery::-webkit-scrollbar { display: none; }
+.gallery-track { display: flex; align-items: flex-start; gap: 16px; width: max-content; padding-inline: var(--pad); }
+.gallery-track img { width: clamp(220px, 27vw, 400px); height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--r); filter: grayscale(1); box-shadow: var(--shadow); }
+.gallery-track img:nth-child(even) { margin-top: clamp(32px, 6vw, 88px); }
 
 /* ---------- contact ---------- */
 .contact { padding: clamp(110px, 16vw, 200px) 0 clamp(80px, 10vw, 120px); }
@@ -256,8 +254,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   .js .panel.enter .mini i { animation: lit .8s var(--ease) both; animation-delay: calc(var(--k) * 70ms + .15s); }
   @keyframes lit { from { transform: scaleX(.15); opacity: .3; } }
 
-  .venture:hover { transform: translateY(-6px); }
-
   @supports (animation-timeline: view()) {
     /* the Layer mark opens into its five layers, bottom first */
     .stack li { animation: gather linear both; animation-timeline: --layers; animation-range: contain 0% contain 40%; }
@@ -278,7 +274,12 @@ p { margin: 0 0 1em; text-wrap: pretty; }
     .manifesto .wd { animation: word linear both; animation-timeline: --quote; animation-range: contain calc(var(--i) * var(--step)) contain calc(var(--i) * var(--step) + 12%); }
     @keyframes word { from { opacity: .14; } }
 
-    /* the studio plate drifts against the scroll */
+    /* abstract plates pan sideways while the strip crosses the viewport */
+    .gallery { overflow: clip; }
+    .gallery-track { animation: pan linear both; animation-timeline: view(); animation-range: cover; }
+    @keyframes pan { from { transform: translateX(6vw); } to { transform: translateX(calc(-100% + 94vw)); } }
+
+    /* the portrait drifts against the scroll */
     .plate-studio img { animation: drift linear both; animation-timeline: view(); animation-range: cover; }
     @keyframes drift { from { transform: scale(1.14) translateY(-4%); } to { transform: scale(1.14) translateY(4%); } }
   }

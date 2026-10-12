@@ -6,7 +6,7 @@ Static site for Layer Consulting. Plain HTML and CSS, no build step.
 index.html        Italian (default)
 en/index.html     English
 404.html          not-found page (served by GitHub Pages)
-assets/           site.css, site.js, favicon.svg, img/ (portraits)
+assets/           site.css, site.js, favicon.svg, img/
 CNAME             custom domain for GitHub Pages
 ```
 
@@ -29,3 +29,10 @@ Preview locally: `python3 -m http.server 8000`, then open http://localhost:8000.
 3. Back in Settings → Pages, wait for the certificate and tick *Enforce HTTPS*.
 
 Leave the existing MX/TXT records alone: they carry the `@layerconsulting.net` mailboxes on Google Workspace.
+
+## Images
+
+`assets/img/franco-puppo.jpg` is Franco's portrait. The abstract plates are Unsplash photos
+(Unsplash License, free to use), fetched in grayscale through Picsum:
+strata (Julien Moreau), facade (Mike Wilson), courtyard (Liam Andrew), lattice (Samuel Zeller),
+ridge (Fabio Rose), stairs (davide ragusa).
