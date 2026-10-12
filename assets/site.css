@@ -77,12 +77,19 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .btn:active { transform: scale(.97); }
 .btn-ink { background: var(--ink); color: var(--paper); }
 .btn-ink:hover { box-shadow: 0 14px 34px -10px color-mix(in oklab, var(--ink) 55%, transparent); }
-.btn-line { color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.btn-line { color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); background: color-mix(in oklab, var(--sheet) 55%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .btn-line:hover { box-shadow: inset 0 0 0 1px var(--ink); }
 .nav .btn { padding: 11px 18px; font-size: .9rem; }
 
 /* ---------- hero ---------- */
 .hero { min-height: 100dvh; display: grid; align-items: center; padding: 112px 0 56px; }
+.hero { position: relative; isolation: isolate; overflow: clip; }
+.hero-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: grayscale(1) contrast(1.15); opacity: .34; mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%); }
+.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in oklab, var(--paper) 70%, transparent) 0%, color-mix(in oklab, var(--paper) 30%, transparent) 45%, transparent 100%); }
+:root[data-theme="dark"] .hero-bg img { opacity: .26; mix-blend-mode: normal; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero-bg img { opacity: .26; mix-blend-mode: normal; } }
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
 .h-hero { font-size: clamp(2.5rem, 6vw, 5.8rem); line-height: 1; letter-spacing: -0.045em; }
 @media (min-width: 861px) { .h-hero .ln { white-space: nowrap; } }
@@ -239,6 +246,8 @@ h2 .dim, .row h3 .dim { color: var(--ink-3); }
   .plate-hero { animation: uncover 1.5s var(--ease) .25s both; }
   .plate-hero img { animation: settle 2.2s var(--ease) .25s both; }
   .nav-pill { animation: drop .9s var(--ease) .1s both; }
+  .hero-bg img { animation: bgIn 2.6s var(--ease) both; }
+  @keyframes bgIn { from { scale: 1.16; opacity: 0; } }
   @keyframes rise { from { opacity: 0; transform: translateY(.45em); filter: blur(10px); } }
   @keyframes uncover { from { clip-path: inset(100% 0 0 0 round var(--r)); } to { clip-path: inset(0 0 0 0 round var(--r)); } }
   @keyframes settle { from { transform: scale(1.18); } }
@@ -273,6 +282,9 @@ h2 .dim, .row h3 .dim { color: var(--ink-3); }
     /* manifesto: words light up as you read */
     .manifesto .wd { animation: word linear both; animation-timeline: --quote; animation-range: contain calc(var(--i) * var(--step)) contain calc(var(--i) * var(--step) + 12%); }
     @keyframes word { from { opacity: .14; } }
+
+    .hero-bg { animation: bgOut linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
+    @keyframes bgOut { to { translate: 0 22vh; opacity: .2; } }
 
     /* abstract plates pan sideways while the strip crosses the viewport */
     .gallery { overflow: clip; }
