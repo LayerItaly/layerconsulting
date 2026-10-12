@@ -14,9 +14,13 @@ Preview locally: `python3 -m http.server 8000`, then open http://localhost:8000.
 
 ## Deploy (GitHub Pages)
 
-1. Repository Settings → Pages → Source: *Deploy from a branch*, `main`, `/ (root)`.
-   On the free organisation plan Pages needs a **public** repository.
-2. DNS for `layerconsulting.net` (nameservers `ns-cloud-e*.googledomains.com`, registrar Squarespace Domains):
+`scripts/publish.sh` copies only the site files (`index.html`, `404.html`, `en/`, `assets/`,
+`robots.txt`, `sitemap.xml`, `CNAME`) to the `gh-pages` branch, which GitHub Pages serves. Run it after
+pushing `main`. Until the domain points here the site lives at https://layeritaly.github.io/layerconsulting/.
+
+To serve it on `layerconsulting.net`:
+
+1. DNS for `layerconsulting.net` (nameservers `ns-cloud-e*.googledomains.com`, registrar Squarespace Domains):
 
    | Type  | Host  | Value                   |
    |-------|-------|-------------------------|
@@ -26,9 +30,9 @@ Preview locally: `python3 -m http.server 8000`, then open http://localhost:8000.
    | A     | @     | 185.199.111.153         |
    | CNAME | www   | layeritaly.github.io.   |
 
-3. Back in Settings → Pages, wait for the certificate and tick *Enforce HTTPS*.
-
-Leave the existing MX/TXT records alone: they carry the `@layerconsulting.net` mailboxes on Google Workspace.
+   Leave the existing MX/TXT records alone: they carry the `@layerconsulting.net` mailboxes on Google Workspace.
+2. Once the records resolve: `gh api -X PUT repos/LayerItaly/layerconsulting/pages -f cname=layerconsulting.net`,
+   then tick *Enforce HTTPS* in Settings, Pages, when the certificate is issued.
 
 ## Images
 
