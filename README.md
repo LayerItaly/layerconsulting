@@ -6,7 +6,7 @@ Static site for Layer Consulting. Plain HTML and CSS, no build step.
 index.html        Italian (default)
 en/index.html     English
 404.html          not-found page (served by GitHub Pages)
-assets/           site.css, site.js, favicon.svg
+assets/           site.css, site.js, favicon.svg, img/ (portraits)
 CNAME             custom domain for GitHub Pages
 ```
 
