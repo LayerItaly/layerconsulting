@@ -85,7 +85,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .hero { min-height: 100dvh; display: grid; align-items: center; padding: 112px 0 56px; }
 .hero { position: relative; isolation: isolate; overflow: clip; }
 .hero-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.hero .wrap { position: relative; z-index: 1; }
 .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: grayscale(1) contrast(1.15); opacity: .34; mix-blend-mode: multiply;
   -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%); }
 .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in oklab, var(--paper) 70%, transparent) 0%, color-mix(in oklab, var(--paper) 30%, transparent) 45%, transparent 100%); }
@@ -151,7 +150,7 @@ h2 .dim, .row h3 .dim { color: var(--ink-3); }
 .row .arrow svg { width: 18px; height: 18px; }
 .row:hover h3, .row:focus-visible h3 { transform: translateX(10px); }
 .row:hover .more, .row:focus-visible .more { grid-template-rows: 1fr; opacity: 1; }
-.row:hover .arrow, .row:focus-visible .arrow { transform: rotate(-45deg); background: var(--grad); color: #fff; box-shadow: none; }
+.row:hover .arrow, .row:focus-visible .arrow { transform: rotate(-45deg); background: var(--ink); color: var(--paper); box-shadow: none; }
 .row:focus-visible { box-shadow: inset 3px 0 0 var(--accent); }
 @media (hover: none) { .row .more { grid-template-rows: 1fr; opacity: 1; } .row .arrow { display: none; } }
 
@@ -224,20 +223,6 @@ h2 .dim, .row h3 .dim { color: var(--ink-3); }
 .mail { font: 500 clamp(1.15rem, 2.4vw, 1.6rem)/1.3 var(--display); letter-spacing: -0.02em; overflow-wrap: anywhere; }
 .contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
 
-/* ---------- flying layer bars (the gradient top bar of the mark, set loose) ---------- */
-.fly { position: absolute; display: block; border-radius: 99px; background: var(--grad); pointer-events: none; }
-.f-a { width: clamp(90px, 13vw, 190px); height: 14px; top: 17%; left: 44%; }
-.f-b { width: clamp(46px, 6vw, 84px); height: 9px; top: 80%; left: 34%; opacity: .9; }
-.f-c { width: clamp(60px, 9vw, 130px); height: 11px; top: 88%; right: 8%; }
-.f-glow { width: 38vw; height: 9vw; top: 4%; right: -6vw; filter: blur(60px); opacity: .22; }
-.manifesto-stage { position: sticky; overflow: clip; }
-.m-a { width: clamp(140px, 22vw, 320px); height: 18px; top: 24%; left: 0; }
-.m-b { width: clamp(70px, 10vw, 150px); height: 10px; bottom: 24%; left: 0; opacity: .85; }
-.contact .wrap { position: relative; }
-.c-a { position: relative; width: clamp(120px, 16vw, 220px); height: 16px; margin-bottom: 34px; }
-.progress { position: fixed; inset: 0 0 auto; height: 3px; z-index: 25; background: var(--grad); transform-origin: left; transform: scaleX(0); display: none; }
-@media (max-width: 860px) { .f-a { top: 9%; left: 58%; } .f-b, .f-c { display: none; } }
-
 /* ---------- footer ---------- */
 .foot { border-top: 1px solid var(--line); padding: 32px 0 44px; color: var(--ink-3); font-size: .88rem; }
 .foot .wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
@@ -262,14 +247,6 @@ h2 .dim, .row h3 .dim { color: var(--ink-3); }
   .plate-hero img { animation: settle 2.2s var(--ease) .25s both; }
   .nav-pill { animation: drop .9s var(--ease) .1s both; }
   .hero-bg img { animation: bgIn 2.6s var(--ease) both; }
-  .f-a { animation: flyIn 1.6s var(--ease) .5s both, float 9s ease-in-out 2.1s infinite alternate; }
-  .f-b { animation: flyIn 1.6s var(--ease) .8s both, float 7s ease-in-out 2.4s infinite alternate-reverse; }
-  .f-c { animation: flyIn 1.6s var(--ease) .65s both, float 11s ease-in-out 2.2s infinite alternate; }
-  .f-glow { animation: glowIn 3s var(--ease) both, drift 16s ease-in-out 3s infinite alternate; }
-  @keyframes flyIn { from { opacity: 0; transform: translateX(-60vw) scaleX(1.8); } }
-  @keyframes float { to { transform: translate(28px, -18px); } }
-  @keyframes glowIn { from { opacity: 0; } }
-  @keyframes drift { to { transform: translate(-8vw, 6vh) scale(1.2); } }
   @keyframes bgIn { from { scale: 1.16; opacity: 0; } }
   @keyframes rise { from { opacity: 0; transform: translateY(.45em); filter: blur(10px); } }
   @keyframes uncover { from { clip-path: inset(100% 0 0 0 round var(--r)); } to { clip-path: inset(0 0 0 0 round var(--r)); } }
@@ -308,22 +285,6 @@ h2 .dim, .row h3 .dim { color: var(--ink-3); }
 
     .hero-bg { animation: bgOut linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
     @keyframes bgOut { to { translate: 0 22vh; opacity: .2; } }
-
-    /* bars keep their own speed while the page scrolls */
-    .f-a { animation: flyIn 1.6s var(--ease) .5s both, float 9s ease-in-out 2.1s infinite alternate, rise-a linear both; }
-    .f-b { animation: flyIn 1.6s var(--ease) .8s both, float 7s ease-in-out 2.4s infinite alternate-reverse, rise-b linear both; }
-    .f-c { animation: flyIn 1.6s var(--ease) .65s both, float 11s ease-in-out 2.2s infinite alternate, rise-c linear both; }
-    .f-a, .f-b, .f-c { animation-timeline: auto, auto, scroll(root); animation-range: normal, normal, 0 100vh; }
-    @keyframes rise-a { to { translate: 0 -36vh; } }
-    @keyframes rise-b { to { translate: 0 -70vh; } }
-    @keyframes rise-c { to { translate: 0 -52vh; } }
-    .m-a { animation: cross linear both; animation-timeline: --quote; animation-range: contain 0% contain 100%; }
-    .m-b { animation: cross linear both; animation-timeline: --quote; animation-range: contain 10% contain 80%; }
-    @keyframes cross { from { transform: translateX(-30vw); } to { transform: translateX(110vw); } }
-    .c-a { animation: slideIn linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
-    @keyframes slideIn { from { transform: translateX(-40vw) scaleX(2.4); opacity: 0; } }
-    .progress { display: block; animation: progress linear both; animation-timeline: scroll(root); }
-    @keyframes progress { to { transform: scaleX(1); } }
 
     /* abstract plates pan sideways while the strip crosses the viewport */
     .gallery { overflow: clip; }
