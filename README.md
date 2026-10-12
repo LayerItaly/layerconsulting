@@ -34,5 +34,5 @@ Leave the existing MX/TXT records alone: they carry the `@layerconsulting.net` m
 
 `assets/img/franco-puppo.jpg` is Franco's portrait. The abstract plates are Unsplash photos
 (Unsplash License, free to use), fetched in grayscale through Picsum:
-strata (Julien Moreau), facade (Mike Wilson), courtyard (Liam Andrew), lattice (Samuel Zeller),
+hero-bg / facade (Mike Wilson), courtyard (Liam Andrew), lattice (Samuel Zeller),
 ridge (Fabio Rose), stairs (davide ragusa).

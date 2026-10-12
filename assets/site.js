@@ -60,6 +60,18 @@
   });
   if (tabs.length) select(tabs[0]);
 
+  // Hero: the Layer light follows the pointer; without one it keeps drifting (CSS).
+  var hero = document.querySelector('.hero');
+  if (hero && finePointer && !still) {
+    hero.addEventListener('pointermove', function (e) {
+      var r = hero.getBoundingClientRect();
+      hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      hero.classList.add('live');
+    });
+    hero.addEventListener('pointerleave', function () { hero.classList.remove('live'); });
+  }
+
   // Contact button leans toward the pointer.
   if (finePointer && !still) {
     document.querySelectorAll('.magnetic').forEach(function (el) {
