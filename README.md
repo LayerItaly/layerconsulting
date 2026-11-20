@@ -41,3 +41,6 @@ To serve it on `layerconsulting.net`:
 (Unsplash License, free to use), fetched in grayscale through Picsum:
 hero-bg / facade (Mike Wilson), courtyard (Liam Andrew), lattice (Samuel Zeller),
 ridge (Fabio Rose), stairs (davide ragusa).
+
+`assets/img/football-hero.jpg` (football page hero) is the Unsplash photo https://unsplash.com/photos/soccer-field-qCrKTET_09o
+(Unsplash License), fetched in grayscale from the Unsplash CDN.
