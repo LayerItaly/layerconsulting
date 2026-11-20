@@ -3,7 +3,7 @@
 # Only the site files go out; README, PRODUCT.md and scripts stay in main.
 set -eu
 cd "$(dirname "$0")/.."
-FILES="index.html 404.html en assets robots.txt sitemap.xml .nojekyll"
+FILES="index.html 404.html en football assets robots.txt sitemap.xml .nojekyll"
 REV=$(git rev-parse --short HEAD)
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT

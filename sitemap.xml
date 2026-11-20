@@ -10,4 +10,14 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://layerconsulting.net/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://layerconsulting.net/en/"/>
   </url>
+  <url>
+    <loc>https://layerconsulting.net/football/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://layerconsulting.net/football/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://layerconsulting.net/en/football/"/>
+  </url>
+  <url>
+    <loc>https://layerconsulting.net/en/football/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://layerconsulting.net/football/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://layerconsulting.net/en/football/"/>
+  </url>
 </urlset>
