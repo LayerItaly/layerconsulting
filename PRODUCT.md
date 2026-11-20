@@ -43,7 +43,7 @@ No contact form or backend: contact is by email. No analytics, no cookies. Clien
 
 No ventures shown on the home page (the user removed Trailgun and Weaver). No client logos, no testimonials, no metrics cleared for publication.
 
-Football page (`/football/`, `/en/football/`, user request 2026-11-20) is the one place with a named track record, as dictated by the user: CTO at Wyscout (acquired by Hudl, 2019); Capello Index, an initiative with Fabio Capello; Soccer Hero, a football video game; technical head (architecture and delivery) of FMDB Pro by Sports Interactive, used by FIFA, an Arab football federation and the whole Premier League; co-founder of Noisefeed with Nicolò Cavallo (sold 2023); CTO at Soccerment with SICS Atlas. The federation is unnamed on purpose until the user names it.
+Football page (`/football/`, `/en/football/`, user request 2026-11-20) is the one place with a named track record, as dictated by the user: CTO at Wyscout (acquired by Hudl, 2019); R&D Director at Hudl (Hudl Insight, Hudl Studio); Capello Index, an initiative with Fabio Capello; Soccer Hero, a football video game; technical head (architecture and delivery) of FMDB Pro by Sports Interactive, used by FIFA, an Arab football federation and the whole Premier League; co-founder of Noisefeed with Nicolò Cavallo (sold 2023); CTO at Soccerment with SICS Atlas. The federation is unnamed on purpose until the user names it.
 
 ## Product Principles
 
