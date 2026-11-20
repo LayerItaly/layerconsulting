@@ -44,3 +44,6 @@ ridge (Fabio Rose), stairs (davide ragusa).
 
 `assets/img/football-hero.jpg` (football page hero) is the Unsplash photo https://unsplash.com/photos/soccer-field-qCrKTET_09o
 (Unsplash License), fetched in grayscale from the Unsplash CDN.
+
+`assets/img/franco-puppo-football.jpg` (football page portrait) is the studio portrait re-dressed in the Layer
+Legea football shirt with fal.ai (nano-banana-pro/edit), from Franco's selfie in the shirt.
