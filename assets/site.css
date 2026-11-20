@@ -63,6 +63,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .nav-pill { pointer-events: auto; display: flex; align-items: center; gap: 4px; padding: 6px; border-radius: 99px; background: color-mix(in oklab, var(--sheet) 72%, transparent); backdrop-filter: blur(18px) saturate(1.6); -webkit-backdrop-filter: blur(18px) saturate(1.6); border: 1px solid color-mix(in oklab, var(--line) 70%, transparent); transition: box-shadow .4s var(--ease); }
 .nav.stuck .nav-pill { box-shadow: var(--shadow); }
 .brand { display: flex; align-items: center; gap: 10px; padding: 4px 14px 4px 8px; text-decoration: none; font: 600 .98rem/1 var(--display); letter-spacing: -0.02em; white-space: nowrap; }
+.mark { flex: none; }
 .mark .b1 { fill: var(--bar-1); } .mark .b2 { fill: var(--bar-2); } .mark .b3 { fill: var(--bar-3); } .mark .b4 { fill: var(--bar-4); }
 .nav-links a { text-decoration: none; font-size: .9rem; font-weight: 500; color: var(--ink-2); padding: 8px 12px; border-radius: 99px; transition: color .2s, background-color .2s; white-space: nowrap; }
 .nav-links a:hover { color: var(--ink); background: var(--paper-2); }
@@ -253,7 +254,8 @@ h2 .dim, .row h3 .dim { color: var(--ink-3); }
 /* ---------- football: track record ledger ---------- */
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 22px; font: 600 .82rem/1 var(--text); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
 .eyebrow::before { content: ""; width: 28px; height: 6px; border-radius: 99px; background: var(--grad); }
-.h-hero-long { font-size: clamp(2.4rem, 5.6vw, 5.4rem); }
+.h-hero-long { font-size: clamp(2.2rem, 4.6vw, 4.6rem); }
+.h-hero-long .ln { white-space: normal; }
 .ledger { list-style: none; margin: 56px 0 0; padding: 0; border-top: 1px solid var(--line); }
 .ledger > li { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(20px, 5vw, 80px); padding: clamp(30px, 4vw, 48px) 0; border-bottom: 1px solid var(--line); }
 .ledger .who { display: grid; gap: 8px; align-content: start; }
